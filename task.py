@@ -1,43 +1,25 @@
-from datetime import datetime
-class SmartPhones:
-    def __init__(self, name, color, memory, battery = 0):
+class Person:
+    def __init__(self, name, phone_number, card_number):
         self.name = name
-        self.color = color
-        self.memory = memory
-        self.battery = battery
+        self._phone_number = phone_number
+        self.__card_number = card_number
 
-    def str(self):
-        return f'{self.name} {self.memory}'
+    def _validate_phone_number(self):
+        if isinstance(self._phone_number, int) and str(self._phone_number)[0:3] == '996':
+            pass
+        else:
+            self._phone_number = None
 
-    def charge(self, bat):
-        self.battery += bat
+    def __validate_card_number(self):
+        if isinstance(self.__card_number, int) and len(str(self.__card_number)) == 16:
+            pass
+        else:
+            self.__card_number = None
 
+    tolik = property(_validate_phone_number, __validate_card_number)
 
-class Iphone(SmartPhones):
-    def __init__(self, name, color, memory, battery, ios: str):
-        super().__init__(name, color, memory, battery)
-        self.ios = ios
-
-    def send_imessage(self, string):
-        return f'sending {string} from {self.name} {self.memory}'
-
-
-class Samsung(SmartPhones):
-    def __init__(self, name, color, memory, battery, android: str):
-        super().__init__(name, color, memory, battery)
-        self.android = android
-
-    def show_time(self):
-        return datetime.now
-
-
-phone = SmartPhones('generic', 'blue', '128GB') 
-print(phone) 
-print(phone.battery) 
-phone.charge(20) 
-print(phone.battery) 
-iphone7 = Iphone('Iphone 7', 'gold', '128gb', '1.17', '1.14.3') 
-print(iphone7)
-print(iphone7.send_imessage('hello'))
-samsung21 = Samsung('Samsung A21', 'black', '256gb', 'Oreo', 'Oreo') 
-print(samsung21.show_time())
+tolik = Person('Mike', 996706153343, 64732645732)
+tolik.tolik
+print(tolik.name)
+print(tolik._phone_number)
+print(tolik._Person__card_number)

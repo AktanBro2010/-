@@ -1,23 +1,31 @@
-class Math:
-    def __init__(self, number):
-        self.number = number
+class Language:
+    def __init__(self, level, type):
+        self.level = level
+        self.type = type
+
+class Python(Language):
+    def write_function(self, func_name, arg):
+        return f'def {func_name}({arg}):'
+
+    def create_variable(self, var_name, value):
+        return f'{var_name} = {value}'
     
-    def get_factorial(self):
-        factorial = 1
-        for i in range(2, self.number+1):
-            factorial *= i
-        return factorial
+# print(js.write_function('validate', 'form')) print(js.create_variable('password', 'john@123'))
+    
+# function validate(form) {     }; 
+# let password = 'john@123'
 
-    def get_sum(self):
-        factorial = 1
-        for i in range(2, self.number+1):
-            factorial += i
-            return factorial
-        
-    def get_mul_table(self):
-        for i in range(1, 10):
-            return f'{self.number}x{i}={self.number * i}'
-        
+class JavaScript(Language):
+    def write_function(self, func_name, arg):
+        return f'function {func_name}({arg}) ' + '{     };'
 
-math = Math(12)
-print(math.get_mul_table())
+    def create_variable(self, var_name, value):
+        return f'let {var_name} = {value}'
+    
+py = Python('Senior', 'asdf')
+print(py.write_function('get_code', 'a')) 
+print(py.create_variable('name', 'John'))
+
+js = JavaScript('senior', 21)
+print(js.write_function('validate', 'form')) 
+print(js.create_variable('password', 'john@123'))
