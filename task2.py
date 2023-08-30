@@ -1,31 +1,20 @@
-class Language:
-    def __init__(self, level, type):
-        self.level = level
-        self.type = type
+# Создайте классы Mercury, Venus, Jupiter, которые наследуют метод __init__ от родительского класса Planet. У объектов данного класса должен быть аттрибут orbit, орбита в классе Venus состовляет 225 земных дней, Mercury 88 земных дней, а на Jupiter 12 дней. У всех этих классов должен быть метод get_age, принимающий возраст в переменную earth_age и расчитывающий ваш возраст на данной планете.
 
-class Python(Language):
-    def write_function(self, func_name, arg):
-        return f'def {func_name}({arg}):'
+# Метод должен возвращать возраст на Mercury в годах, на Venus в днях и на Jupiter в часах. Например, если возраст earth_age равен 20:
 
-    def create_variable(self, var_name, value):
-        return f'{var_name} = {value}'
-    
-# print(js.write_function('validate', 'form')) print(js.create_variable('password', 'john@123'))
-    
-# function validate(form) {     }; 
-# let password = 'john@123'
+# на Венере ваш возраст составляет 11842 дней
+# на Юпитере ваш возраст составляет 5326080 часов
+# на Меркурии ваш возраст составляет 82 лет
 
-class JavaScript(Language):
-    def write_function(self, func_name, arg):
-        return f'function {func_name}({arg}) ' + '{     };'
 
-    def create_variable(self, var_name, value):
-        return f'let {var_name} = {value}'
-    
-py = Python('Senior', 'asdf')
-print(py.write_function('get_code', 'a')) 
-print(py.create_variable('name', 'John'))
+class Planet:
+    def __init__(self, orbit):
+        self.orbit = orbit
+        
 
-js = JavaScript('senior', 21)
-print(js.write_function('validate', 'form')) 
-print(js.create_variable('password', 'john@123'))
+class Mercury(Planet):
+    def __init__(self, orbit=88):
+        super().__init__(orbit)
+
+    def get_age(self, earth_age):
+        super
