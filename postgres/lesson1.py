@@ -37,3 +37,5 @@
     # CREATE USER <username> WITH PASSWORD 'your_password'; - создание пользователя
 
 # 4. ALTER ROLE <username> WITH <PRIVILEGE>; - предоставление прав пользователю
+
+
