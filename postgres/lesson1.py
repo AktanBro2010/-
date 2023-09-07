@@ -39,3 +39,4 @@
 # 4. ALTER ROLE <username> WITH <PRIVILEGE>; - предоставление прав пользователю
 
 
+# sudo psql -U aktanbro2010 -d postgres
